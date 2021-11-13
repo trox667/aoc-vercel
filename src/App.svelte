@@ -1,10 +1,12 @@
 <script>
-	export let name;
+	import Days from './days.svelte'
 </script>
 
 <main>
-	<h1>Hello {name}!</h1>
-	<p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
+	<h1>Advent of Code</h1>
+	<div class="days">
+		<Days />
+	</div>
 </main>
 
 <style>
@@ -16,7 +18,7 @@
 	}
 
 	h1 {
-		color: darkred;
+		color: black;
 		text-transform: uppercase;
 		font-size: 4em;
 		font-weight: 100;

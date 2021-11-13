@@ -4,6 +4,7 @@ import resolve from '@rollup/plugin-node-resolve';
 import livereload from 'rollup-plugin-livereload';
 import { terser } from 'rollup-plugin-terser';
 import css from 'rollup-plugin-css-only';
+import autoProcess from 'svelte-preprocess';
 
 const production = !process.env.ROLLUP_WATCH;
 
@@ -41,7 +42,13 @@ export default {
 			compilerOptions: {
 				// enable run-time checks when not in production
 				dev: !production
-			}
+			},
+			// https://github.com/ifahrentholz/svelte-sass-autoprefixer/blob/master/package.json
+			preprocess: autoProcess({
+				postcss: {
+					plugins: [require('autoprefixer')({browsers: "last 2 versions"})]
+				}
+			})
 		}),
 		// we'll extract any component CSS out into
 		// a separate file - better for performance
