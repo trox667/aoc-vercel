@@ -1,9 +1,19 @@
-<script>
+<script lang="ts">
     export let day = 0
+
+    const openDay = (event) => {
+        console.log("selected", Day)
+    }
+
 </script>
 
-<div class="day">
+<div on:click={openDay} class="day-container">
+    <div class="day">
+
+    </div>
+    <div class="day-number">
     Day {day}
+    </div>
 </div>
 
 <style>
@@ -14,6 +24,13 @@
         min-width: 50px;
         min-height: 50px;
         height: 10vw;
+        width: 10vw;
+        line-height: 10vw;
+        color: #60483E;
+    }
+
+    .day-number {
+        min-width: 50px;
         width: 10vw;
     }
 
@@ -33,7 +50,7 @@
         }
     }
 
-    .day:hover {
+    .day-container:hover {
         animation: shake 0.82s cubic-bezier(.36, .07, .19, .97) both;
         transform: translate3d(0, 0, 0);
         backface-visibility: hidden;

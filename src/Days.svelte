@@ -1,5 +1,5 @@
-<script>
-    import Day from './day.svelte'
+<script lang="ts">
+    import Day from './Day.svelte'
 </script>
 
 <div class="days">
@@ -8,6 +8,12 @@
     <Day day="3"/>
     <Day day="4"/>
     <Day day="5"/>
+
+    <Day day="6"/>
+    <Day day="7"/>
+    <Day day="8"/>
+    <Day day="9"/>
+    <Day day="10"/>
 </div>
 
 <style>
@@ -15,5 +21,6 @@
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
         grid-column-gap: 5px;
+        grid-row-gap: 20px;
     }
 </style>
