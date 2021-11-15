@@ -1,14 +1,20 @@
 <script lang="ts">
     import Day from './Day.svelte'
     import FoldCard from "./FoldCard.svelte";
+    import PaperCard from "./PaperCard.svelte";
 </script>
 
 <div class="days">
-    <FoldCard />
-    <FoldCard />
-    <FoldCard />
-    <FoldCard />
-    <FoldCard />
+    <PaperCard />
+    <PaperCard />
+    <PaperCard />
+    <PaperCard />
+    <PaperCard />
+<!--    <FoldCard />-->
+<!--    <FoldCard />-->
+<!--    <FoldCard />-->
+<!--    <FoldCard />-->
+<!--    <FoldCard />-->
 <!--    <Day day="1"/>-->
 <!--    <Day day="2"/>-->
 <!--    <Day day="3"/>-->
