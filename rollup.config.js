@@ -41,17 +41,19 @@ export default {
 	},
 	plugins: [
 		svelte({
-			preprocess: sveltePreprocess({ sourceMap: !production }),
+			preprocess: [
+				sveltePreprocess({ sourceMap: !production }),
+				// https://github.com/ifahrentholz/svelte-sass-autoprefixer/blob/master/package.json
+				autoProcess({
+					postcss: {
+						plugins: [require('autoprefixer')({browsers: "last 2 versions"})]
+					}
+				})
+			],
 			compilerOptions: {
 				// enable run-time checks when not in production
 				dev: !production
 			},
-			// https://github.com/ifahrentholz/svelte-sass-autoprefixer/blob/master/package.json
-			preprocess: autoProcess({
-				postcss: {
-					plugins: [require('autoprefixer')({browsers: "last 2 versions"})]
-				}
-			})
 		}),
 		// we'll extract any component CSS out into
 		// a separate file - better for performance

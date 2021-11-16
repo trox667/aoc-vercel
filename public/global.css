@@ -5,6 +5,9 @@ html, body {
 }
 
 body {
+    display:flex;
+    flex-direction: column;
+    height: 100vh;
     color: #59B5A4;
     margin: 0;
     padding: 0;
@@ -12,6 +15,10 @@ body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
     background-image: url("background.jpg");
     background-size: cover;
+}
+
+h1 {
+    font-size: 4em;
 }
 
 nav a {

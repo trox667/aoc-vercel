@@ -58,8 +58,8 @@
 
 <style>
     .card {
-        width: 10vw;
-        height: 10vw;
+        width: 100px;
+        height: 100px;
         perspective: 1000px;
     }
 

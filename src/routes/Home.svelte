@@ -1,7 +1,11 @@
 <script lang="ts">
     import Days from '../Days.svelte'
+    import Snowman from "../components/Snowman.svelte";
 </script>
-    <h1>Advent of Code</h1>
-    <div class="days">
-        <Days/>
-    </div>
+<h1>Advent of Code</h1>
+<div>
+    <Snowman />
+</div>
+<div class="days">
+    <Days/>
+</div>

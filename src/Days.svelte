@@ -1,11 +1,10 @@
 <script lang="ts">
     import Day from './Day.svelte'
-    import FoldCard from "./components/FoldCard.svelte";
-    import PaperCard from "./components/PaperCard.svelte";
+    import {dayIndices as dayIndicesStore} from "./stores/days";
 
-    export let days = 25
-    const dayIndices = []
-    for (let i = 1; i <= days; ++i) dayIndices.push(i)
+    let dayIndices = []
+    dayIndicesStore.subscribe(value => dayIndices = [...value])
+
 </script>
 
 <div class="days">
@@ -18,7 +17,7 @@
     .days {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-        grid-column-gap: 5px;
-        grid-row-gap: 20px;
+        grid-column-gap: 5vw;
+        grid-row-gap: 5vh;
     }
 </style>

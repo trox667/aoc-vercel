@@ -15,7 +15,7 @@
             <div class="day-container day"></div>
         </div>
         <div slot="front">
-            <h1>{day}</h1>
+            <h2>{day}</h2>
         </div>
     </PaperCard>
 </div>
@@ -23,14 +23,14 @@
 <style>
     .day {
         position: absolute;
-        top: 2vw;
-        left: 2vw;
+        top: 20px;
+        left: 20px;
         background-image: url("../present.png");
         background-size: cover;
         background-repeat: no-repeat;
         box-shadow: 0 0 5px 5px rgb(0 0 0 / 0.2);
-        height: 6vw;
-        width: 6vw;
+        height: 60px;
+        width: 60px;
         /*line-height: 10vw;*/
         color: #60483E;
     }
