@@ -1,31 +1,37 @@
 <script lang="ts">
+    import PaperCard from "./components/PaperCard.svelte";
+
     export let day = 0
 
-    const openDay = (event) => {
-        console.log("selected", Day)
+    const openDay = (_) => {
+        console.log("selected", day)
     }
 
 </script>
 
-<div on:click={openDay} class="day-container">
-    <div class="day">
-
-    </div>
-    <div class="day-number">
-    Day {day}
-    </div>
+<div on:click={openDay}>
+    <PaperCard>
+        <div slot="content">
+            <div class="day-container day"></div>
+        </div>
+        <div slot="front">
+            <h1>{day}</h1>
+        </div>
+    </PaperCard>
 </div>
 
 <style>
     .day {
+        position: absolute;
+        top: 2vw;
+        left: 2vw;
         background-image: url("../present.png");
         background-size: cover;
         background-repeat: no-repeat;
-        min-width: 50px;
-        min-height: 50px;
-        height: 10vw;
-        width: 10vw;
-        line-height: 10vw;
+        box-shadow: 0 0 5px 5px rgb(0 0 0 / 0.2);
+        height: 6vw;
+        width: 6vw;
+        /*line-height: 10vw;*/
         color: #60483E;
     }
 
@@ -37,16 +43,16 @@
     /*https://css-tricks.com/snippets/css/shake-css-keyframe-animation/*/
     @keyframes shake {
         10%, 90% {
-            transform: translate3d(-1px, 0, 0);
+            transform: translate3d(-1px, 1px, 0);
         }
         20%, 80% {
-            transform: translate3d(2px, 0, 0);
+            transform: translate3d(2px, -2px, 0);
         }
         30%, 50%, 70% {
-            transform: translate3d(-4px, 0, 0);
+            transform: translate3d(-4px, 2px, 0);
         }
         40%, 60% {
-            transform: translate3d(4px, 0, 0);
+            transform: translate3d(4px, -2px, 0);
         }
     }
 

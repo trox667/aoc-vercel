@@ -1,31 +1,17 @@
 <script lang="ts">
     import Day from './Day.svelte'
-    import FoldCard from "./FoldCard.svelte";
-    import PaperCard from "./PaperCard.svelte";
+    import FoldCard from "./components/FoldCard.svelte";
+    import PaperCard from "./components/PaperCard.svelte";
+
+    export let days = 25
+    const dayIndices = []
+    for (let i = 1; i <= days; ++i) dayIndices.push(i)
 </script>
 
 <div class="days">
-    <PaperCard />
-    <PaperCard />
-    <PaperCard />
-    <PaperCard />
-    <PaperCard />
-<!--    <FoldCard />-->
-<!--    <FoldCard />-->
-<!--    <FoldCard />-->
-<!--    <FoldCard />-->
-<!--    <FoldCard />-->
-<!--    <Day day="1"/>-->
-<!--    <Day day="2"/>-->
-<!--    <Day day="3"/>-->
-<!--    <Day day="4"/>-->
-<!--    <Day day="5"/>-->
-
-<!--    <Day day="6"/>-->
-<!--    <Day day="7"/>-->
-<!--    <Day day="8"/>-->
-<!--    <Day day="9"/>-->
-<!--    <Day day="10"/>-->
+    {#each dayIndices as dayIndex}
+        <Day day="{dayIndex}"/>
+    {/each}
 </div>
 
 <style>
