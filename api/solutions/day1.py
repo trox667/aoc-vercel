@@ -13,7 +13,7 @@ def part1():
 
 def part2():
     d = {'(': 1, ')': -1}
-    with open('input01') as file:
+    with open('inputs/input01') as file:
         input_string = file.read()
         floor = 0
         for i, c in enumerate(input_string):

@@ -7,12 +7,15 @@ sys.path.append('solutions')
 sys.path.append('api/solutions')
 
 def run_day(day):
-    module_name = 'day' + day
-    module = __import__(module_name)
-    print(module)
-    part1 = getattr(module, 'part1')
-    part2 = getattr(module, 'part2')
-    return f'{part1()},{part2()}'
+    try:
+        module_name = 'day' + day
+        module = __import__(module_name)
+        print(module)
+        part1 = getattr(module, 'part1')
+        part2 = getattr(module, 'part2')
+        return f'{part1()},{part2()}'
+    except Exception:
+        return 'error: Could not run solution.'
 
 
 def send_error(handler, message):
