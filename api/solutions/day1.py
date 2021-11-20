@@ -1,5 +1,9 @@
+import os
+
+
 def part1():
     d = {'(': 1, ')': -1}
+    print('day1', os.getcwd())
     with open('../../inputs/input01') as file:
         input_string = file.read()
         floor = 0
