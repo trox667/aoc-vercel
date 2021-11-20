@@ -2,7 +2,8 @@ from http.server import BaseHTTPRequestHandler
 from urllib.parse import parse_qs
 import sys
 
-sys.path.append('solutions')
+sys.path.append('api')
+sys.path.append('api/solutions')
 
 def run_day(day):
     module_name = 'day' + day
