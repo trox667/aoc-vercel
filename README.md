@@ -11,3 +11,17 @@ Hover a Door in the Calendar to see if it's already available.
 `#F5DC9F`
 `#F4CF55`
 `#DC7652`
+
+## Alt. Color Palette
+
+Quicksand
+`#ba9b8e`
+
+Buccaneer
+`#6f313c`
+
+Fuscous Gray
+`#585651`
+
+Ironstone
+`#814b38`

@@ -66,7 +66,7 @@
 
     .content {
         position: absolute;
-        background-color: #dc7652;
+        background-color: #814b38;
         text-align: center;
         width: 100%;
         height: 100%;
@@ -101,11 +101,11 @@
     }
 
     .front {
-        background-color: #60483e;
+        background-color: #585651;
     }
 
     .back {
         transform: rotateY(180deg);
-        background-color: #dc7652;
+        background-color: #814b38;
     }
 </style>

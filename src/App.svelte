@@ -1,8 +1,7 @@
 <script lang="ts">
     // https://www.npmjs.com/package/svelte-routing
-    import {Router, Link, Route} from 'svelte-routing'
+    import {Link, Route, Router} from 'svelte-routing'
     import Home from "./routes/Home.svelte";
-    import About from "./routes/About.svelte";
     import {dayIndices} from "./stores/days";
     import Result from "./routes/Result.svelte";
 
@@ -14,29 +13,28 @@
 <Router url="{url}">
     <nav>
         <Link to="/">Home</Link>
-        <Link to="about">About</Link>
     </nav>
     <main>
         <Route path="/">
             <Home/>
         </Route>
-        <Route path="/about">
-            <About/>
-        </Route>
-        <Route path="/result/:day/:part1/:part2" let:params>
+        <Route let:params path="/result/:day/:part1/:part2">
             <Result day="{params.day}" part1="{params.part1}" part2="{params.part2}"/>
         </Route>
     </main>
     <footer>
         <div class="footer-container">
             <a href="https://www.adventofcode.com" target="_blank">
-                <img src="adventofcode.png" width="32" height="32" alt="Advent of Code Logo">
+                <img alt="Advent of Code Logo" height="32" src="adventofcode.png" width="32">
             </a>
             <a href="https://www.svelte.dev" target="_blank">
-                <img src="svelte.svg" width="32" height="32" alt="Svelte JS UI Framework Logo">
+                <img alt="Svelte JS UI Framework Logo" height="32" src="svelte.svg" width="32">
             </a>
             <a href="https://www.python.org" target="_blank">
-            <img src="python.svg" width="32" height="32" alt="Python Programming Language Logo">
+                <img alt="Python Programming Language Logo" height="32" src="python.svg" width="32">
+            </a>
+            <a href="https://github.com/trox667" target="_blank">
+                <img alt="Github Logo" height="32" src="github.png" width="32">
             </a>
         </div>
     </footer>
@@ -50,7 +48,7 @@
         width: 100%;
         padding: 5px;
         margin: 0 auto;
-        background: #DC7652;
+        background: #6f313c;
         min-height: 2vh;
         text-align: center;
         line-height: 2vh;
@@ -58,8 +56,6 @@
 
     main {
         text-align: center;
-        padding: 1em;
-        max-width: 240px;
         margin: 0 auto;
     }
 
@@ -79,7 +75,7 @@
     footer {
         margin: auto auto 0 0;
         width: 100%;
-        background: #60483e;
+        background: #6f313c;
     }
 
     .footer-container {

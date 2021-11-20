@@ -39,7 +39,7 @@
     }
 
     const openDay = async (_) => {
-        navigate(`/result/${day}/${1}/${2}`)
+        navigate(`/result/${day}/${result.part1}/${result.part2}`)
     }
 
     const canBeOpened = () => {

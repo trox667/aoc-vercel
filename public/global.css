@@ -8,11 +8,13 @@ body {
     display:flex;
     flex-direction: column;
     height: 100vh;
-    color: #59B5A4;
+    color: #ba9b8e;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+    /*font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;*/
+    font-family: 'Mountains of Christmas', 'serif';
+    font-size: 1em;
     background-image: url("background.jpg");
     background-size: cover;
 }
@@ -24,6 +26,7 @@ h1 {
 nav a {
     color: #F4CF55;
     text-decoration: none;
+    font-size: 1.5em;
 }
 
 nav a:visited {
@@ -43,5 +46,31 @@ nav a:active {
 
 nav a:link {
     color: #F4CF55;
+    text-decoration: none;
+}
+
+a {
+    color: #814b38;
+    text-decoration: none;
+    font-size: 1.5em;
+}
+
+a:visited {
+    color: #814b38;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #585651;
+    text-decoration: none;
+}
+
+a:active {
+    color: #814b38;
+    text-decoration: none;
+}
+
+a:link {
+    color: #814b38;
     text-decoration: none;
 }
