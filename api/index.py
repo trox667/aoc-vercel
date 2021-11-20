@@ -3,6 +3,7 @@ from urllib.parse import parse_qs
 import sys
 
 sys.path.append('api')
+sys.path.append('solutions')
 sys.path.append('api/solutions')
 
 def run_day(day):
@@ -50,8 +51,8 @@ class handler(BaseHTTPRequestHandler):
                     day = query['day'][0]
                     result = run_day(day)
                     send_text(self, result)
-                except Exception:
-                    send_error(self, 'Requested day not found')
+                except Exception as e:
+                    send_error(self, 'Requested day not found', e)
             else:
                 send_error(self, 'Invalid query')
         else:
