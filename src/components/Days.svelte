@@ -1,6 +1,6 @@
 <script lang="ts">
     import Day from './Day.svelte'
-    import {dayIndices as dayIndicesStore} from "./stores/days";
+    import {dayIndices as dayIndicesStore} from "../stores/days";
 
     let dayIndices = []
     dayIndicesStore.subscribe(value => dayIndices = [...value])

@@ -137,29 +137,11 @@
             const [x, y] = this.mousePos
 
             const nx = (0.5 - x / width) * 4
-            console.log(nx)
+            const oy = (cy + dy) / height
+            const ny = (oy - y / height) * 2
 
-            if (x < cx) {
-                // look left
-                this.camera.position.x = nx
-            } else if (x > cx - dx) {
-                // look right
-                this.camera.position.x = nx
-            } else {
-                // look front
-                this.camera.position.x = 0
-            }
-
-            if (y < cy) {
-                // look up
-                this.camera.position.y = -1
-            } else if (y > cy + dy) {
-                // look down
-                this.camera.position.y = 1
-            } else {
-                // look front
-                this.camera.position.y = 0
-            }
+            this.camera.position.x = nx
+            this.camera.position.y = -ny
         }
     }
 
@@ -181,7 +163,7 @@
 <!--<svelte:window on:resize={(_) => snowmanScene.resize()}></svelte:window>-->
 
 <svelte:window bind:innerWidth={width} bind:innerHeight={height}
-               on:mousemove={(e) => {if (snowmanScene) snowmanScene.setMousePos(e.clientX, e.clientY)}} />
+               on:mousemove={(e) => {if (snowmanScene) snowmanScene.setMousePos(e.clientX, e.clientY)}}/>
 
 <canvas bind:this={canvas} id="canvas" width={canvasWidth} height={canvasHeight}></canvas>
 

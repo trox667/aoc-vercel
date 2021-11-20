@@ -4,6 +4,7 @@
     import Home from "./routes/Home.svelte";
     import About from "./routes/About.svelte";
     import {dayIndices} from "./stores/days";
+    import Result from "./routes/Result.svelte";
 
     dayIndices.set([12, 21, 20, 2, 7, 11, 1, 22, 13, 6, 9, 10, 23, 5, 17, 8, 4, 24, 15, 18, 14, 25, 16, 19, 3])
 
@@ -21,6 +22,9 @@
         </Route>
         <Route path="/about">
             <About/>
+        </Route>
+        <Route path="/result/:day/:part1/:part2" let:params>
+            <Result day="{params.day}" part1="{params.part1}" part2="{params.part2}"/>
         </Route>
     </main>
     <footer>

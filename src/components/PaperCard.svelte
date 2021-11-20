@@ -21,14 +21,15 @@
             state = PaperState.COVERED
     }
 
-    let action = PaperAction.NONE;
-    let state = PaperState.COVERED;
+    let action = PaperAction.NONE
+    let state = PaperState.COVERED
+    export let canBeOpened = false
 </script>
 
 <div class="card"
-     on:mouseover={actionOpening}
-     on:mouseleave={actionClosing}
-     on:transitionend={actionTransition}>
+     on:mouseleave={canBeOpened ? actionClosing : () => {}}
+     on:mouseover={canBeOpened ? actionOpening : () => {}}
+     on:transitionend={canBeOpened ? actionTransition : () => {}}>
     <div class="content">
         <slot name="content"></slot>
     </div>
