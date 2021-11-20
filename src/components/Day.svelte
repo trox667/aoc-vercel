@@ -14,6 +14,18 @@
         constructor(public part1 = 0, public part2 = 0) {
         }
 
+        static fromResponse(text: string): Result {
+            if (text.startsWith('error: '))
+                return new Result()
+
+            const [part1, part2] = text.split(',')
+            try {
+                return new Result(parseInt(part1), parseInt(part2))
+            } catch (e) {
+                return new Result()
+            }
+        }
+
         isCompleted(): ResultCompletion {
             if (this.part1 === 0 && this.part2 === 0)
                 return ResultCompletion.None
@@ -24,15 +36,6 @@
             else
                 return ResultCompletion.Done
         }
-
-        static fromResponse(text: string): Result {
-            const [part1, part2] = text.split(',')
-            try {
-                return new Result(parseInt(part1), parseInt(part2))
-            } catch (e) {
-                return new Result()
-            }
-        }
     }
 
     const openDay = async (_) => {
@@ -42,7 +45,7 @@
     const canBeOpened = () => {
         const date = new Date()
         const currentDay = date.getDate()
-        const currentMonth = date.getMonth()+1
+        const currentMonth = date.getMonth() + 1
         const currentYear = date.getFullYear()
 
         if (currentYear === 2021) {
@@ -59,9 +62,11 @@
     }
 
     onMount(async () => {
-        const response = await fetch(`/api?day=${day}`)
-        if (response.status === 200) {
-            result = Result.fromResponse(await response.text())
+        if (canBeOpened()) {
+            const response = await fetch(`/api?day=${day}`)
+            if (response.status === 200) {
+                result = Result.fromResponse(await response.text())
+            }
         }
     })
 
@@ -96,6 +101,7 @@
         font-weight: bold;
         margin: 0;
     }
+
     .day {
         position: absolute;
         top: 20px;

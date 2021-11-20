@@ -14,8 +14,10 @@ def run_day(day):
 
 
 def send_error(handler, message):
-    handler.send_error(400)
-    handler.wfile.write(message.encode())
+    handler.send_response(200)
+    handler.send_header('Content-type', 'text/json')
+    handler.end_headers()
+    handler.wfile.write(('error: ' + message).encode())
 
 
 def send_json(handler, content):
