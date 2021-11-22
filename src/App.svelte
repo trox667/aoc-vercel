@@ -13,17 +13,7 @@
 <Router url="{url}">
     <nav>
         <Link to="/">Home</Link>
-    </nav>
-    <main>
-        <Route path="/">
-            <Home/>
-        </Route>
-        <Route let:params path="/result/:day/:part1/:part2">
-            <Result day="{params.day}" part1="{params.part1}" part2="{params.part2}"/>
-        </Route>
-    </main>
-    <footer>
-        <div class="footer-container">
+        <div class="right">
             <a href="https://www.adventofcode.com" target="_blank">
                 <img alt="Advent of Code Logo" height="32" src="adventofcode.png" width="32">
             </a>
@@ -37,7 +27,15 @@
                 <img alt="Github Logo" height="32" src="github.png" width="32">
             </a>
         </div>
-    </footer>
+    </nav>
+    <main>
+        <Route path="/">
+            <Home/>
+        </Route>
+        <Route let:params path="/result/:day/:part1/:part2">
+            <Result day="{params.day}" part1="{parseInt(params.part1)}" part2="{parseInt(params.part2)}"/>
+        </Route>
+    </main>
 </Router>
 
 <style>
@@ -57,6 +55,7 @@
     main {
         text-align: center;
         margin: 0 auto;
+        width: 100%;
     }
 
     h1 {
@@ -72,16 +71,7 @@
         }
     }
 
-    footer {
-        margin: auto auto 0 0;
-        width: 100%;
-        background: #6f313c;
-    }
-
-    .footer-container {
-        padding: 5px;
-        min-height: 2vh;
-        vertical-align: center;
-        text-align: center;
+    .right {
+        margin: 0 10px auto auto;
     }
 </style>

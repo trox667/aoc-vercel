@@ -9,15 +9,21 @@
 
 <div class="days">
     {#each dayIndices as dayIndex}
-        <Day day="{dayIndex}"/>
+        <div class="day">
+            <Day day="{dayIndex}"/>
+        </div>
     {/each}
 </div>
 
 <style>
     .days {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-        grid-column-gap: 5vw;
-        grid-row-gap: 5vh;
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+    }
+
+    .day {
+        flex: 1 0 17%;
+        margin: 1vh;
     }
 </style>

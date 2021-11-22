@@ -23,6 +23,14 @@ h1 {
     font-size: 4em;
 }
 
+h2 {
+    font-size: 3em;
+}
+
+h3 {
+    font-size: 2em;
+}
+
 nav a {
     color: #F4CF55;
     text-decoration: none;

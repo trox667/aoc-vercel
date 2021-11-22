@@ -11,27 +11,48 @@
 <div class="container">
     <h2>🎁 Part 1</h2>
     <span></span>
-    <h2>{part1}</h2>
+    {#if part1 !== 0}
+        <div class="result">
+            <img alt="Python Programming Language Logo" height="32" src="/python.svg" width="32">
+            <h3>{part1}</h3>
+        </div>
+    {:else}
+        <h2>🚧</h2>
+    {/if}
     <h2>🎁 Part 2</h2>
     <span></span>
-    <h2>{part2}</h2>
-    <div class="center">
+    {#if part2 !== 0}
+        <div class="result">
+            <img alt="Python Programming Language Logo" height="32" src="/python.svg" width="32">
+            <h3>{part2}</h3>
+        </div>
+    {:else}
+        <h2>🚧</h2>
+    {/if}
+    <div class="offset">
         <Link to="/">☃️ Back</Link>
     </div>
-
 </div>
 
 <style>
-    .container {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        grid-column-gap: 5vw;
-        grid-row-gap: 5vh;
+    .result {
+        display: flex;
+        justify-content: space-evenly;
+        width: 30%;
+        margin: 0 auto;
     }
 
-    .center {
-        grid-row-start: 3;
-        grid-column-start: 2;
-        grid-column-end: 2;
+    .result h3 {
+        margin: 0;
+    }
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .offset {
+        margin-top: 5vh;
     }
 </style>
