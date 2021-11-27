@@ -3,10 +3,18 @@
     import Snowman from "../components/Snowman.svelte";
 </script>
 
-<h1>Advent of Code</h1>
-<div class="halfWidth">
+<div class="row">
     <Snowman/>
+    <h1>Advent of Code</h1>
 </div>
 <div class="days">
     <Days/>
 </div>
+
+<style>
+    .row {
+        display: flex;
+        margin-top: 30px;
+        justify-content: center;
+    }
+</style>
