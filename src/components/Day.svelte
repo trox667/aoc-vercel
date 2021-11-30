@@ -41,7 +41,7 @@
         const currentYear = date.getFullYear()
 
         if (currentYear === 2021) {
-            if (currentMonth === 11) {
+            if (currentMonth === 12) {
                 if (currentDay >= day) {
                     return true
                 }
@@ -76,6 +76,9 @@
                 <div>🎁
                     {result.part2}
                 </div>
+                <div>
+                    <a href="https://github.com/trox667/aoc-vercel/blob/main/api/solutions/day{day}.py" target="_blank">Source</a>
+                </div>
             </div>
         </div>
         <div slot="front">
@@ -92,6 +95,15 @@
 </div>
 
 <style>
+    a {
+        color: #ba9b8e;
+        font-size: 1em;
+    }
+
+    a:hover {
+        color: #F4CF55;
+    }
+
     .content {
         font-size: 1.25em;
     }
