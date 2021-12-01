@@ -30,25 +30,26 @@ def load_file():
     return ''
 
 
-def part1():
-    d = {'(': 1, ')': -1}
-    input_string = load_file()
-    floor = 0
-    for c in input_string:
-        if c in d:
-            floor += d[c]
-    return floor
+def count_increase(depths):
+    increased_count = 0
+    for i in range(1, len(depths)):
+        if depths[i - 1] < depths[i]:
+            increased_count += 1
+    return increased_count
 
-    #         print(f'Part 1: {floor}')
+
+def part1():
+    depths = [int(line.strip()) for line in load_file().splitlines() if
+              line.strip()]
+    return count_increase(depths)
 
 
 def part2():
-    d = {'(': 1, ')': -1}
-    input_string = load_file()
-    floor = 0
-    for i, c in enumerate(input_string):
-        if c in d:
-            floor += d[c]
-        if floor == -1:
-            #                 print(f'Part 2: {i + 1}')
-            return i + 1
+    depths = [int(line.strip()) for line in load_file().splitlines() if
+              line.strip()]
+    sums = []
+    for i in range(0, len(depths) - 2):
+        a = sum([depths[i + 0], depths[i + 1], depths[i + 2]])
+        sums.append(a)
+
+    return count_increase(sums)
