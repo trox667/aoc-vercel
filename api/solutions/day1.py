@@ -35,19 +35,14 @@ def file_to_depths():
             line.strip()]
 
 
-def count_increase(depths):
-    return sum([depths[i - 1] < depths[i] for i in
-                range(1, len(depths))])
+def count_increasing(depths, start=1):
+    return sum([depths[i - start] < depths[i] for i in
+                range(start, len(depths))])
 
 
 def part1():
-    depths = file_to_depths()
-    return count_increase(depths)
+    return count_increasing(file_to_depths())
 
 
 def part2():
-    depths = file_to_depths()
-    sums = [depths[i - 2] + depths[i - 1] + depths[i] for i in
-            range(2, len(depths))]
-
-    return count_increase(sums)
+    return count_increasing(file_to_depths(), 3)
