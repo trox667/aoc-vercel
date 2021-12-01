@@ -30,26 +30,24 @@ def load_file():
     return ''
 
 
+def file_to_depths():
+    return [int(line.strip()) for line in load_file().splitlines() if
+            line.strip()]
+
+
 def count_increase(depths):
-    increased_count = 0
-    for i in range(1, len(depths)):
-        if depths[i - 1] < depths[i]:
-            increased_count += 1
-    return increased_count
+    return sum([depths[i - 1] < depths[i] for i in
+                range(1, len(depths))])
 
 
 def part1():
-    depths = [int(line.strip()) for line in load_file().splitlines() if
-              line.strip()]
+    depths = file_to_depths()
     return count_increase(depths)
 
 
 def part2():
-    depths = [int(line.strip()) for line in load_file().splitlines() if
-              line.strip()]
-    sums = []
-    for i in range(0, len(depths) - 2):
-        a = sum([depths[i + 0], depths[i + 1], depths[i + 2]])
-        sums.append(a)
+    depths = file_to_depths()
+    sums = [depths[i - 2] + depths[i - 1] + depths[i] for i in
+            range(2, len(depths))]
 
     return count_increase(sums)
