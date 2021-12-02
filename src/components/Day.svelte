@@ -70,14 +70,14 @@
     <PaperCard canBeOpened={canBeOpened()}>
         <div slot="content" class="content">
             <div>
-                <div>🎁
-                    {result.part1}
-                </div>
-                <div>🎁
-                    {result.part2}
+                <div>
+                    P1: {result.part1}
                 </div>
                 <div>
-                    <a href="https://github.com/trox667/aoc-vercel/blob/main/api/solutions/day{day}.py" target="_blank">Source</a>
+                    P2: {result.part2}
+                </div>
+                <div>
+                    <a href="https://github.com/trox667/aoc-vercel/blob/main/api/solutions/day{day}.py" target="_blank"> <img alt="Github Logo" height="32" src="github.png" width="32"></a>
                 </div>
             </div>
         </div>
@@ -97,7 +97,7 @@
 <style>
     a {
         color: #ba9b8e;
-        font-size: 1em;
+        font-size: 1.25em;
     }
 
     a:hover {
@@ -105,7 +105,7 @@
     }
 
     .content {
-        font-size: 1.25em;
+        font-size: 1em;
     }
 
     .day-christmas {

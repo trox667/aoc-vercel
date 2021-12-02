@@ -5,7 +5,7 @@
 
 <div class="row">
     <Snowman/>
-    <h1>Advent of Code</h1>
+    <h1>Advent of Code 2021 🎄</h1>
 </div>
 <div class="days">
     <Days/>
