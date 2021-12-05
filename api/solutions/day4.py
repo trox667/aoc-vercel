@@ -110,7 +110,3 @@ def part2():
                 board.completed = True
                 results.append(board.sum_unmarked() * board.last_marker)
     return results.pop()
-
-
-print(part1())
-print(part2())
