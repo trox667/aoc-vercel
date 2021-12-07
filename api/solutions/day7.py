@@ -15,7 +15,7 @@ def load_file():
     if is_debug():
         try:
             print('using local file')
-            file = open('public/inputs/input06')
+            file = open('public/inputs/input07')
             return file.read()
         except Exception:
             return ''
@@ -23,7 +23,7 @@ def load_file():
         try:
             print('using http')
             response = requests.get(
-                'https://aoc-trox667.vercel.app/inputs/input06')
+                'https://aoc-trox667.vercel.app/inputs/input07')
             if response.status_code == 200:
                 return response.text
         except Exception:
