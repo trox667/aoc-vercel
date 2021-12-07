@@ -35,42 +35,31 @@ def create_input():
     return [int(t) for t in load_file().split(',')]
 
 
+def run(h_positions, calc_fuel=lambda d: d):
+    last_pos = max(h_positions)
+    min_fuel = sys.maxsize
+    fuel_distance = {}
+    for target_pos in range(last_pos):
+        fuel = 0
+        for crab_pos in h_positions:
+            if target_pos == crab_pos:
+                continue
+
+            d = abs(crab_pos - target_pos)
+            if d not in fuel_distance:
+                fuel_req = calc_fuel(d)
+                fuel_distance[d] = fuel_req
+            fuel += fuel_distance[d]
+
+            if fuel > min_fuel:
+                break
+        min_fuel = min(fuel, min_fuel)
+    return min_fuel
+
+
 def part1():
-    pos = create_input()
-    end = max(pos)
-    pos_set = range(0, end)
-    min_f = sys.maxsize
-    for h in pos_set:
-        f = 0
-        for p in pos:
-            if p != h:
-                f += abs(h - p)
-        min_f = min(f, min_f)
-    return min_f
+    return run(create_input())
 
 
 def part2():
-    pos = create_input()
-    end = max(pos)
-    pos_set = range(0, end)
-    min_f = sys.maxsize
-
-    visited = {}
-
-    for h in pos_set:
-        f = 0
-        for p in pos:
-            if p != h:
-                d = abs(h - p)
-
-                if d not in visited:
-                    fc = sum([i for i in range(1, d + 1)])
-                    visited[d] = fc
-                    f += fc
-                else:
-                    f += visited[d]
-
-                if f > min_f:
-                    break
-        min_f = min(f, min_f)
-    return min_f
+    return run(create_input(), lambda d: (d ** 2 + d) // 2)
