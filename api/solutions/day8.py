@@ -1,23 +1,35 @@
 from collections import Counter
+import sys
+import requests
+import os
+from dotenv import load_dotenv
 
-test = """acedgfb cdfbe gcdfa fbcad dab cefabd cdfgeb eafb cagedb ab | cdfeb fcadb cdfeb cdbaf"""
-test3 = """bdfegc cbegaf gecbf dfcage bdacg ed bedf ced adcbefg gebcd | ed bcgafe cdgba cbgef"""
-test2 = """be cfbegad cbdgef fgaecd cgeb fdcge agebfd fecdb fabcd edb | fdgacbe cefdb cefbgd gcbe
-edbfga begcd cbg gc gcadebf fbgde acbgfd abcde gfcbed gfec | fcgedb cgb dgebacf gc
-fgaebd cg bdaec gdafb agbcfd gdcbef bgcad gfac gcb cdgabef | cg cg fdcagb cbg
-fbegcd cbd adcefb dageb afcb bc aefdc ecdab fgdeca fcdbega | efabcd cedba gadfec cb
-aecbfdg fbg gf bafeg dbefa fcge gcbea fcaegb dgceab fcbdga | gecf egdcabf bgf bfgea
-fgeab ca afcebg bdacfeg cfaedg gcfdb baec bfadeg bafgc acf | gebdcfa ecba ca fadegcb
-dbcfg fgd bdegcaf fgec aegbdf ecdfab fbedc dacgb gdcebf gf | cefg dcbef fcge gbcadfe
-bdfegc cbegaf gecbf dfcage bdacg ed bedf ced adcbefg gebcd | ed bcgafe cdgba cbgef
-egadfb cdbfeg cegd fecab cgb gbdefca cg fgcdab egfdb bfceg | gbdfcae bgc cg cgb
-gcafb gcf dcaebfg ecagb gf abcdeg gaef cafbge fdbac fegbdc | fgae cfgab fg bagce"""
-unique_digit_segment = {2, 3, 4, 7}
+
+def is_debug():
+    load_dotenv()
+    DEBUG = os.getenv('AOC_DEBUG')
+    print('AOC_DEBUG', DEBUG)
+    return DEBUG is not None
 
 
 def load_file():
-    with open('../inputs/input08') as file:
-        return file.read()
+    if is_debug():
+        try:
+            print('using local file')
+            file = open('public/inputs/input07')
+            return file.read()
+        except Exception:
+            return ''
+    else:
+        try:
+            print('using http')
+            response = requests.get(
+                'https://aoc-trox667.vercel.app/inputs/input07')
+            if response.status_code == 200:
+                return response.text
+        except Exception:
+            return ''
+    return ''
 
 
 def create_input():
@@ -95,7 +107,7 @@ def part1():
     count_unique = 0
     for line in lines:
         for word in line[1]:
-            if len(word) in unique_digit_segment:
+            if len(word) in {2, 3, 4, 7}:
                 count_unique += 1
     return count_unique
 
@@ -123,7 +135,3 @@ def part2():
             number += digit_from_segment(word, segment)
         result += int(number)
     return result
-
-
-print(part1())
-print(part2())
